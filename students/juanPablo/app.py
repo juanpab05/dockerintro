@@ -2,7 +2,7 @@ from flask import Flask
 import os
 
 app = Flask(__name__)
-student = os.getenv("STUDENT_NAME", "Juan Pablo")
+student = os.getenv("STUDENT_NAME", "Juan-Pablo")
 hood = os.getenv("BARRIO", "Cañaverales")
 
 @app.get("/")
