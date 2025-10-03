@@ -195,12 +195,12 @@ docker push ghcr.io/your-username/cali-service:v1
 Each student runs a container from their **published image** (names below are examples; feel free to customize):
 
 ```bash
-docker run -d --name svc-ana \
-  --network san-antonio \
-  -e STUDENT_NAME="Ana" \
-  -e BARRIO="San Antonio" \
+docker run -d --name svc-juan \
+  --network canaverales \
+  -e STUDENT_NAME="Juan-Pablo" \
+  -e BARRIO="Cañaverales" \
   -v biblioteca-del-pueblo:/var/log/app \
-  -p 0:8080 your-dockerhub-username/cali-service:v1
+  -p 0:8080 juanpazcai/cali-service:v1
 ```
 
 ---
@@ -208,7 +208,7 @@ docker run -d --name svc-ana \
 ### Step 6: Test connectivity
 ```bash
 # From host
-curl http://localhost:<port>
+curl http://localhost:32768
 
 # From another container in the same neighborhood
 docker run --rm --network san-antonio curlimages/curl -s http://svc-ana:8080/
