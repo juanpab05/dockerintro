@@ -7,7 +7,7 @@ hood = os.getenv("BARRIO", "Siloé")
 
 @app.get("/")
 def home():
-    msg = f"Hola, I am {Sergio} and I live in {Siloe}"
+    msg = f"Hola, I am {student} and I live in {hood}"
     with open("/var/log/app/visitas.log", "a") as f:
         f.write(msg + "\n")
     return msg
