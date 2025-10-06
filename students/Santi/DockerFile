@@ -11,8 +11,8 @@ WORKDIR /app
 RUN apk add --no-cache wget
 
 # Install dependencies (separate layer for better caching)
-COPY requirements.txt .
-RUN pip install --no-cache-dir -r requirements.txt
+COPY requeriments.txt .
+RUN pip install --no-cache-dir -r requeriments.txt
 
 # Copy application code
 COPY app.py .
