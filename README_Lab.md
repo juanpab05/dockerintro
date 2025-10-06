@@ -21,9 +21,14 @@ The goal is to learn **networks**, **volumes**, **image publishing**, and **team
 Create networks and the shared volume once:
 
 ```bash
-docker network create san-antonio
-docker network create granada
-docker network create ciudad-jardin
+docker network create canaverales
+docker network create ciudad-cordoba
+docker network create las-americas
+docker network create vista-hermosa
+docker network create villa-fatima
+docker network create el-portal
+docker network create siloe
+
 docker volume create biblioteca-del-pueblo
 ```
 
@@ -187,6 +192,18 @@ docker push your-dockerhub-username/cali-service:v1
 docker build -t ghcr.io/your-username/cali-service:v1 ./students/<your-name>
 docker push ghcr.io/your-username/cali-service:v1
 ```
+
+### Download image:
+```bash
+docker pull juanpazcai/cali-service:v1
+docker pull davidguerrerod/cali-service:v1
+docker pull ghcr.io/jhonierm14/cali-service:v1
+docker pull finnito/cali-service:v1
+docker pull cobolios/cali-service:v1
+docker pull esas9/cali-service:v1
+docker pull sxthy/cali-service:v1
+docker pull sergios22/cali-service:v1
+```
 *(For GitHub Packages, ensure you’re logged in with a PAT and `docker login ghcr.io`.)*
 
 ---
@@ -201,6 +218,22 @@ docker run -d --name svc-juan \
   -e BARRIO="Cañaverales" \
   -v biblioteca-del-pueblo:/var/log/app \
   -p 0:8080 juanpazcai/cali-service:v1
+
+docker run -d --name svc-david \
+  --network las-americas \
+  -e STUDENT_NAME="David Guerrero" \
+  -e BARRIO="Las Americas" \
+  -v biblioteca-del-pueblo:/var/log/app \
+  -p 0:8080 davidguerrerod/cali-service:v1
+
+docker run -d --name svc-jhonier
+--network vista-hermosa
+-e STUDENT_NAME="Jhonier Mendez"
+-e BARRIO="Vista Hermosa"
+-v biblioteca-del-pueblo:/var/log/app
+-p 8080:8080 ghcr.io/jhonierm14/cali-service:v1
+
+
 ```
 
 ---
@@ -211,7 +244,7 @@ docker run -d --name svc-juan \
 curl http://localhost:32768
 
 # From another container in the same neighborhood
-docker run --rm --network san-antonio curlimages/curl -s http://svc-ana:8080/
+docker run --rm --network canaverales curlimages/curl -s http://svc-jhonier:8080/
 ```
 
 ---
