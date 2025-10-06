@@ -27,6 +27,7 @@ docker network create las-americas
 docker network create vista-hermosa
 docker network create villa-fatima
 docker network create el-portal
+docker network create sindical
 docker network create siloe
 
 docker volume create biblioteca-del-pueblo
